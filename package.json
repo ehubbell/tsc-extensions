@@ -8,8 +8,18 @@
   "bin": {
     "tsc-extensions": "dist/index.es.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehubbell/tsc-extensions.git"
+  },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "tsc",
+    "tsc-build",
+    "tsc-plugin",
+    "tsc-transform"
   ],
   "scripts": {
     "dev": "vite build --mode development --minify false --watch",
