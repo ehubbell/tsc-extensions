@@ -26,6 +26,9 @@ export default defineConfig(({ mode }) => {
 					'util',
 					'assert',
 				],
+				output: {
+					banner: '#!/usr/bin/env node',
+				},
 				plugins: [peerDepsExternal()],
 			},
 		},
