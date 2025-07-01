@@ -1,5 +1,5 @@
 # Overview
- A simple vite plugin to add dts extensions to your index.d.ts file imports.
+ A simple cli to add dts extensions to your index.d.ts file imports.
 
 ## Prerequisites
 - Node
@@ -8,37 +8,14 @@
 ## Installation
 
 ```
-npm i vite-plugin-extensions -D
+npm i tsc-extensions -D
 ```
 
 ## Usage
 
-```tsx
-// vite.config.ts
-
-import path from "path";
-import { defineConfig } from "vite";
-import { runExtensions } from "vite-plugin-extensions";
-
-export default defineConfig(({ mode }) => {
-  return {
-    base: "./",
-    build: {
-      lib: {
-        entry: path.resolve(__dirname, "src/index.ts"),
-        name: "Project",
-        formats: ["es", "cjs"],
-        fileName: (format, entryName) => `${entryName}$.${format}.js`,
-      },
-    },
-    plugins: [runExtensions('index.d.ts')],
-    resolve: {
-      alias: {
-        src: path.resolve(__dirname, "/src"),
-      },
-    },
-  };
-});
+```sh
+tsc-extensions
+tsc-extensions --path dist/index.d.ts
 ```
 
 ## Development

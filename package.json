@@ -1,11 +1,13 @@
 {
   "name": "tsc-extensions",
   "version": "0.0.6",
-  "description": "A simple vite plugin to add dts extensions to your index.d.ts file.",
+  "description": "A simple cli to add dts extensions to your index.d.ts file.",
   "author": "Eric Hubbell<eric@erichubbell.com>",
   "license": "ISC",
   "type": "module",
-  "bin": "./dist/index.es.js",
+  "bin": {
+    "tsc-extensions": "dist/index.es.js"
+  },
   "files": [
     "dist"
   ],
