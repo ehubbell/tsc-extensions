@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-dts-extension",
+  "name": "vite-plugin-extensions",
   "version": "0.0.3",
   "description": "A simple vite plugin to add dts extensions to your index.d.ts file.",
   "author": "Eric Hubbell<eric@erichubbell.com>",

@@ -1,15 +1,44 @@
 # Overview
- A simple Vite plugin to rewrite your `index.d.ts` file adding the `.d.ts` extension to your imports.
+ A simple vite plugin to add dts extensions to your index.d.ts file imports.
 
 ## Prerequisites
-- Git
 - Node
 - NPM
 
 ## Installation
 
 ```
-npm i vite-plugin-dts-extension -D
+npm i vite-plugin-extensions -D
+```
+
+## Usage
+
+```tsx
+// vite.config.ts
+
+import path from "path";
+import { defineConfig } from "vite";
+import { runExtensions } from "vite-plugin-extensions";
+
+export default defineConfig(({ mode }) => {
+  return {
+    base: "./",
+    build: {
+      lib: {
+        entry: path.resolve(__dirname, "src/index.ts"),
+        name: "Project",
+        formats: ["es", "cjs"],
+        fileName: (format, entryName) => `${entryName}$.${format}.js`,
+      },
+    },
+    plugins: [runExtensions('index.d.ts')],
+    resolve: {
+      alias: {
+        src: path.resolve(__dirname, "/src"),
+      },
+    },
+  };
+});
 ```
 
 ## Development
