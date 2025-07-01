@@ -1,6 +1,6 @@
 {
   "name": "tsc-extensions",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A simple cli to add dts extensions to your index.d.ts file.",
   "author": "Eric Hubbell<eric@erichubbell.com>",
   "license": "ISC",
