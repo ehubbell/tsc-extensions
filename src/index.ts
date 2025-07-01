@@ -1,12 +1,12 @@
-import { promises as fs } from 'fs';
+import fs from 'fs';
 import path from 'path';
 
 async function formatExtensions(pathName) {
-	const fileContent = await fs.readFile(pathName, 'utf8');
+	const fileContent = await fs.promises.readFile(pathName, 'utf8');
 
 	const importRegex = /(import\s+.*?from\s+['"])([^'"]+)(['"])/g;
 
-	let modifiedContent = fileContent.replace(importRegex, (match, beforePath, importPath, afterPath) => {
+	const modifiedContent = fileContent.replace(importRegex, (match, beforePath, importPath, afterPath) => {
 		if (importPath.startsWith('./') || importPath.startsWith('../')) {
 			const hasExtension = path.extname(importPath) !== '';
 			if (!hasExtension) return `${beforePath}${importPath}.d.ts${afterPath}`;
@@ -14,7 +14,7 @@ async function formatExtensions(pathName) {
 		return match;
 	});
 
-	await fs.writeFile(pathName, modifiedContent, 'utf8');
+	await fs.promises.writeFile(pathName, modifiedContent, 'utf8');
 }
 
 export const runExtensions = (pathName = 'dist/index.d.ts'): any => {
